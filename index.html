@@ -5,39 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GifTastic</title>
     
-
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/images/">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+      <!-- gify API    ylypXp2DJdzSIxhOLecX28bY06qycAp7 -->
 </head>
 <body>
     
     <div class="container">
-        <h1  >70's 80's & 90's Musicians</h1>
-
-        <!-- My Gifs will get placed here -->
-        <div id="music-star"></div>
+      <div class="row">
+        
+        <div calss="col-8"></div>
+        <h2 class="fixed-left" >70's 80's & 90's Musicians</h2>
+      </div>
+        
 
         <!-- New created buttons will get places here -->
         <div id="buttons-view"></div>
         <br>
-        <form id="character-form">
-            <label for="character-input">Add your favorite Musician</label>
-            <input type="text" id="character-input">
+        <form id="musicStar-form">
+            <label for="musicStar-input">Add your favorite Musician</label>
+            <input type="text" id="musicStar-input">
             <br>
 
             <!-- Button triggers new musician to be added -->
-            <input id="add-star" type="submit" value="Add your favorite Music Star">
+            <input id="add-musicStar" type="submit" value="Add you Music Star">
         </form>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="assets/javascript/giphy.js"></script>
+        <!-- My Gifs will get placed here -->
+        <div id="music-star"></div>
 
+       
+        <script src="assets/javascript/app.js"></script>
+    </div>
 
 
 
