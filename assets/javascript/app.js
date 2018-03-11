@@ -29,5 +29,42 @@ $("#add-musicStar").on("click", function(event){
 
 renderButtons();
 // need to create ajax json function for giphy data to be returned to page
+
+$("#buttons-view").on("click", function() {
+    var musicStars = $(this).attr("data-name");
+      console.log(musicStars + "Star")
+    
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ylypXp2DJdzSIxhOLecX28bY06qycAp7&q=" +
+    musicStars +
+    "&limit=10&offset=0&lang=en";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    })
+    .then(function(response){
+        console.log(queryURL);
+        console.log(response);
+
+        var results = response.data;
+        console.log(results);
+
+        for (var i = 0 ; i < results.length; i++) {
+            var musicStarDiv = $("<div>");
+            var p = $("<p>").text("Rating: " + results[i].rating);
+            var musicStarImage = $("<img>");
+            musicStarImage.attr("src", results[i].images.fixed_height.url);
+            musicStarDiv.append(p);
+            musicStarDiv.append(musicStarImage);
+
+            $("#music-star").prepend(musicStarDiv);
+        }
+
+    
+    });
+
+});
+
+
 //need to create a function for pausing and starting video clips
 // 
