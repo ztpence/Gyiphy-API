@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>GifTastic</title>
+    
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -11,15 +12,32 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <style>
-    
-    
-    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
 <body>
     
-   
+    <div class="container">
+        <h1  >70's 80's & 90's Musicians</h1>
+
+        <!-- My Gifs will get placed here -->
+        <div id="music-star"></div>
+
+        <!-- New created buttons will get places here -->
+        <div id="buttons-view"></div>
+        <br>
+        <form id="character-form">
+            <label for="character-input">Add your favorite Musician</label>
+            <input type="text" id="character-input">
+            <br>
+
+            <!-- Button triggers new musician to be added -->
+            <input id="add-star" type="submit" value="Add your favorite Music Star">
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="assets/javascript/giphy.js"></script>
+
 
 
 
@@ -33,7 +51,7 @@
    
    
    
-    <script src="assets/javascript/game.js"> </script>
+    <script src="assets/javascript/app.js"> </script>
     
 </body>
 </html>
