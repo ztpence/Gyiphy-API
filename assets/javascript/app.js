@@ -5,7 +5,7 @@ var musicStars = ["Green Day", "Michael Jackson", "Styx", "Nirvana", "Snoop Dog"
 console.log(musicStars[0])
 function renderButtons() {
     
-    $("#buttons-view").empty();
+$("#buttons-view").empty();
 
     for (var i = 0; i < musicStars.length; i++){
         var button = $("<button>");
@@ -49,21 +49,49 @@ $("#buttons-view").on("click", function() {
         var results = response.data;
         console.log(results);
 
-        for (var i = 0 ; i < results.length; i++) {
-            var musicStarDiv = $("<div>");
-            var p = $("<p>").text("Rating: " + results[i].rating);
+        for (var j = 0 ; j < results.length; j++) {
+            var musicStarDiv = $("<div class='star'>");
+            var p = $("<p>").text("Rating: " + results[j].rating);
             var musicStarImage = $("<img>");
-            musicStarImage.attr("src", results[i].images.fixed_height.url);
+            musicStarImage.attr("src", results[j].images.fixed_height.url);
             musicStarDiv.append(p);
             musicStarDiv.append(musicStarImage);
 
             $("#music-star").prepend(musicStarDiv);
+
+            // getting url for images
+            var stillURL = response.data[j].images.fixed_width_still.url;
+            var animatedURL = response.data[j].images.fixed_width.url;
+            //this will hold image
+            var image = $("<img>").attr("src", stillURL);
+            image.attr("animate", "no");
+            image.attr("still", stillURL);
+            image.attr("running", animatedURL);
+
+            $(image).on("click", function(){
+                if($(this).attr("animate") === "no"){
+                    var newURL = $(this).attr("running");
+                    $(this).attr("src", newURL);
+                    $(this).arrt("animate", "yes");
+                } else {
+                    var newURL = $(this).arrt("still");
+                    $(this).attr("src", newURL);
+                    $(this).arrt("animate", "no");
+                }
+            }
+        
+        )
+
+
+
         }
 
     
     });
 
 });
+
+$()
 
 
 //need to create a function for pausing and starting video clips
