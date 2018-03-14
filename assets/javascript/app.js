@@ -5,7 +5,7 @@ var musicStars = ["Green Day", "Michael Jackson", "Styx", "Nirvana", "Snoop Dog"
 console.log(musicStars[0])
 function renderButtons() {
     
-$("#buttons-view").empty();
+        $("#buttons-view").empty();
 
     for (var i = 0; i < musicStars.length; i++){
         var button = $("<button>");
@@ -30,25 +30,27 @@ $("#add-musicStar").on("click", function(event){
 renderButtons();
 // need to create ajax json function for giphy data to be returned to page
 
-$("#buttons-view").on("click", function() {
+$("#buttons-view").on("click", function siteInfo() {
     var musicStars = $(this).attr("data-name");
       console.log(musicStars + "Star")
     
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ylypXp2DJdzSIxhOLecX28bY06qycAp7&q=" +
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     musicStars +
-    "&limit=10&offset=0&lang=en";
+    "&api_key=rXS6tkTvAluZyOm5gQW10rElyYzxWebR&limit=10";
 
     $.ajax({
         url: queryURL,
         method: "GET"
     })
     .then(function(response){
+            $("#music-star").empty();
+    
         console.log(queryURL);
         console.log(response);
 
         var results = response.data;
         console.log(results);
-
+            // this will create the rults and ratings 
         for (var j = 0 ; j < results.length; j++) {
             var musicStarDiv = $("<div class='star'>");
             var p = $("<p>").text("Rating: " + results[j].rating);
@@ -62,13 +64,13 @@ $("#buttons-view").on("click", function() {
             // getting url for images
             var stillURL = response.data[j].images.fixed_width_still.url;
             var animatedURL = response.data[j].images.fixed_width.url;
-            //this will hold image
+            //this will hold image and adding atributes
             var image = $("<img>").attr("src", stillURL);
             image.attr("animate", "no");
             image.attr("still", stillURL);
             image.attr("running", animatedURL);
-
-            $(image).on("click", function(){
+                // create event listen functon to go from still to motion
+            image.click(function() {
                 if($(this).attr("animate") === "no"){
                     var newURL = $(this).attr("running");
                     $(this).attr("src", newURL);
@@ -78,9 +80,9 @@ $("#buttons-view").on("click", function() {
                     $(this).attr("src", newURL);
                     $(this).arrt("animate", "no");
                 }
-            }
+            });
         
-        )
+            musicStarDiv.append(image)
 
 
 
@@ -91,7 +93,8 @@ $("#buttons-view").on("click", function() {
 
 });
 
-$()
+$(document).on("click", ".musicStar", siteInfo);
+
 
 
 //need to create a function for pausing and starting video clips
